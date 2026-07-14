@@ -89,8 +89,19 @@
   .dim{ color:var(--soft); }
   strong{ font-weight:700; }
 
-  /* ── MANIFESTO ── */
-  .manifesto p{ font-size:clamp(16px,4.4vw,18px); margin-bottom:20px; max-width:52ch; }
+  /* ── MANIFESTO (dictionary entries) ── */
+  .manifesto{ padding:52px 0; }
+  .entry{ margin-bottom:40px; }
+  .entry:last-child{ margin-bottom:0; }
+  .ehead{ display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:10px; }
+  .eword{ font-size:clamp(30px,7vw,40px); font-weight:700; color:var(--lime);
+          letter-spacing:-.02em; line-height:1; }
+  .edef{ font-size:clamp(16px,4.4vw,19px); line-height:1.5; max-width:52ch; }
+  .struck{ color:var(--soft); text-decoration:line-through; text-decoration-color:var(--lime); }
+  .hl{ color:var(--lime); }
+  .mmeme{ margin:36px 0 0; }
+  .mmeme img{ display:block; width:100%; max-width:420px; height:auto;
+              border:1px solid var(--line); box-shadow:0 14px 34px rgba(0,0,0,.35); }
 
   /* ── VERDICT — the one inverted block ── */
   .verdict{ background:var(--bone); color:var(--ink); padding:44px 26px; margin:8px 0; }
@@ -172,8 +183,13 @@
     .head-cta{ margin-top:28px; flex-direction:row; align-items:center; flex-wrap:wrap; gap:16px; }
     .head-meme img{ width:340px; max-width:340px; }
 
-    .manifesto{ padding:64px 0; }
-    .manifesto p{ max-width:56ch; }
+    .manifesto{ padding:80px 0; display:grid; grid-template-columns:1fr auto;
+                gap:64px; align-items:center; }
+    .eword{ font-size:clamp(38px,4vw,52px); }
+    .edef{ max-width:44ch; }
+    .entry{ margin-bottom:44px; }
+    .mmeme{ margin:0; }
+    .mmeme img{ width:400px; max-width:400px; }
 
     .verdict{ padding:64px 56px; }
     .verdict .big{ font-size:clamp(28px,3vw,38px); }
@@ -231,12 +247,24 @@
   <hr>
 
   <section class="manifesto" data-stagger>
-    <div class="grid">
-      <p class="reveal">we make it cringe. relentlessly, specifically, until the thing in your hand looks as stupid as it is and you can't unsee it.</p>
-      <p class="reveal">we do it in memes, because you have the attention span of a disposable vape.</p>
-      <p class="reveal">no breathing exercises. no affirmations. <strong>nobody here is proud of you.</strong></p>
-      <p class="reveal">what we offer instead is the slow, permanent realisation that you are a grown adult sucking a flavoured usb stick.</p>
+    <div class="entries">
+      <div class="entry reveal">
+        <div class="ehead"><span class="eword">cringe</span> <span class="ipa">/krɪndʒ/</span> <span class="pos">verb</span></div>
+        <p class="edef">we make it cringe. relentlessly, specifically, until the thing in your hand looks as stupid as it is and you can't unsee it.</p>
+      </div>
+      <div class="entry reveal">
+        <div class="ehead"><span class="eword">meme</span> <span class="ipa">/miːm/</span> <span class="pos">noun</span></div>
+        <p class="edef">we do it in memes, because you have the attention span of a disposable vape. <s class="struck">no breathing exercises. no affirmations.</s> nobody here is proud of you.</p>
+      </div>
+      <div class="entry reveal">
+        <div class="ehead"><span class="eword">realisation</span> <span class="ipa">/rɪəlʌɪˈzeɪʃn/</span> <span class="pos">noun</span></div>
+        <p class="edef">that you are a grown adult sucking a <span class="hl">flavoured usb stick</span>.</p>
+      </div>
     </div>
+    <figure class="mmeme reveal">
+      <img src="assets/battery-dead.png" width="600" height="600" loading="lazy"
+           alt="five-panel stick-figure comic — 'sorry, can't come out.' / 'battery's dead.' / 'your phone?' / 'no.' — last panel points at a vape charging in a wall socket.">
+    </figure>
   </section>
 
   <div class="verdict reveal">
@@ -355,9 +383,7 @@
   } else {
     // stagger children inside [data-stagger] groups
     document.querySelectorAll('[data-stagger]').forEach(group => {
-      const items = group.matches('.manifesto') ? group.querySelectorAll('.grid .reveal')
-                                                 : group.querySelectorAll('.reveal');
-      items.forEach((el, i) => { el.style.transitionDelay = (i * 90) + 'ms'; });
+      group.querySelectorAll('.reveal').forEach((el, i) => { el.style.transitionDelay = (i * 90) + 'ms'; });
     });
 
     // reveal on scroll
