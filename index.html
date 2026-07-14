@@ -66,8 +66,17 @@
   header{ padding:48px 0 52px; }
   .intro{ font-size:clamp(22px,6vw,34px); line-height:1.22; font-weight:700;
           letter-spacing:-.01em; max-width:20ch; }
-  .launch{ margin-top:24px; display:inline-block; background:var(--lime); color:var(--ink);
+  .head-cta{ margin-top:24px; display:flex; flex-direction:column; gap:14px; align-items:flex-start; }
+  .launch{ display:inline-block; background:var(--lime); color:var(--ink);
            font-weight:700; padding:10px 16px; font-size:clamp(15px,4vw,18px); }
+  .join-link{ display:inline-flex; align-items:center; gap:.5ch; text-decoration:none;
+              border:2px solid var(--lime); color:var(--lime); background:transparent;
+              font-weight:700; padding:10px 16px; font-size:clamp(15px,4vw,17px);
+              transition:background .15s ease, color .15s ease; }
+  .join-link .arr{ transition:transform .18s ease; }
+  .join-link:hover{ background:var(--lime); color:var(--ink); }
+  .join-link:hover .arr{ transform:translateY(3px); }
+  #join{ scroll-margin-top:32px; }
 
   hr{ border:0; border-top:1px solid var(--line); margin:0; }
 
@@ -162,7 +171,7 @@
       align-items:end; padding:64px 0 60px;
     }
     .intro{ font-size:clamp(30px,3.4vw,44px); max-width:16ch; }
-    .launch{ margin-top:0; align-self:end; }
+    .head-cta{ margin-top:0; align-items:flex-end; }
 
     .manifesto{ padding:64px 0; }
     .manifesto .grid{
@@ -205,7 +214,10 @@
 
   <header>
     <p class="intro reveal">we built the least motivational quit vaping app ever made.</p>
-    <span class="launch reveal">launching 1 august.</span>
+    <div class="head-cta reveal">
+      <span class="launch">launching 1 august.</span>
+      <a class="join-link" href="#join">get on the list <span class="arr" aria-hidden="true">↓</span></a>
+    </div>
   </header>
 
   <hr>
@@ -247,7 +259,7 @@
 
   <hr>
 
-  <section class="cta" data-stagger>
+  <section class="cta" id="join" data-stagger>
     <h2 class="reveal">get on the list.</h2>
     <p class="dim reveal">we'll email you when it exists. then we'll leave you alone, which is more than the vape industry has ever done.</p>
 
