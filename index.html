@@ -54,7 +54,7 @@
          line-height:.9; color:var(--lime); }
   .ipa{ font-size:15px; color:var(--soft); }
   .pos{ font-size:14px; color:var(--soft); font-style:italic; }
-  .def{ font-size:clamp(18px,4.6vw,23px); line-height:1.4; max-width:44ch; min-height:2.8em; }
+  .def{ font-size:clamp(15px,3.8vw,18px); line-height:1.45; max-width:44ch; }
   .etym{ font-size:14px; color:var(--soft); line-height:1.55; margin-top:18px;
          border-left:2px solid var(--lime); padding-left:14px; max-width:46ch; }
   .etym em{ font-style:italic; }
@@ -63,19 +63,22 @@
   @keyframes blink{ 50%{ opacity:0; } }
 
   /* ── STATEMENT (tagline + launch) ── */
-  header{ padding:48px 0 52px; }
-  .intro{ font-size:clamp(22px,6vw,34px); line-height:1.22; font-weight:700;
+  header{ padding:48px 0 52px; display:flex; flex-direction:column; gap:34px; }
+  .intro{ font-size:clamp(24px,6.2vw,34px); line-height:1.2; font-weight:700;
           letter-spacing:-.01em; max-width:20ch; }
   .head-cta{ margin-top:24px; display:flex; flex-direction:column; gap:14px; align-items:flex-start; }
   .launch{ display:inline-block; background:var(--lime); color:var(--ink);
            font-weight:700; padding:10px 16px; font-size:clamp(15px,4vw,18px); }
   .join-link{ display:inline-flex; align-items:center; gap:.5ch; text-decoration:none;
-              border:2px solid var(--lime); color:var(--lime); background:transparent;
+              border:2px solid var(--bone); color:var(--ink); background:var(--bone);
               font-weight:700; padding:10px 16px; font-size:clamp(15px,4vw,17px);
-              transition:background .15s ease, color .15s ease; }
+              transition:background .15s ease, color .15s ease, border-color .15s ease; }
   .join-link .arr{ transition:transform .18s ease; }
-  .join-link:hover{ background:var(--lime); color:var(--ink); }
+  .join-link:hover{ background:var(--lime); border-color:var(--lime); color:var(--ink); }
   .join-link:hover .arr{ transform:translateY(3px); }
+  .head-meme{ margin:0; }
+  .head-meme img{ display:block; width:100%; max-width:360px; height:auto;
+                  border:1px solid var(--line); box-shadow:0 14px 34px rgba(0,0,0,.35); }
   #join{ scroll-margin-top:32px; }
 
   hr{ border:0; border-top:1px solid var(--line); margin:0; }
@@ -87,7 +90,7 @@
   strong{ font-weight:700; }
 
   /* ── MANIFESTO ── */
-  .manifesto p{ font-size:clamp(16px,4.4vw,18px); }
+  .manifesto p{ font-size:clamp(16px,4.4vw,18px); margin-bottom:20px; max-width:52ch; }
 
   /* ── VERDICT — the one inverted block ── */
   .verdict{ background:var(--bone); color:var(--ink); padding:44px 26px; margin:8px 0; }
@@ -167,17 +170,15 @@
     .etym{ max-width:100%; }
 
     header{
-      display:grid; grid-template-columns:1fr auto; gap:48px;
-      align-items:end; padding:64px 0 60px;
+      display:grid; grid-template-columns:1fr auto; gap:64px;
+      align-items:center; padding:72px 0 64px;
     }
-    .intro{ font-size:clamp(30px,3.4vw,44px); max-width:16ch; }
-    .head-cta{ margin-top:0; align-items:flex-end; }
+    .intro{ font-size:clamp(30px,3.2vw,42px); max-width:15ch; }
+    .head-cta{ margin-top:28px; flex-direction:row; align-items:center; flex-wrap:wrap; gap:16px; }
+    .head-meme img{ width:340px; max-width:340px; }
 
     .manifesto{ padding:64px 0; }
-    .manifesto .grid{
-      display:grid; grid-template-columns:1fr 1fr; gap:36px 56px;
-    }
-    .manifesto .grid p{ max-width:38ch; margin-bottom:0; }
+    .manifesto p{ max-width:56ch; }
 
     .split{ padding:72px 0; gap:64px; }
     .verdict{ padding:64px 56px; }
@@ -213,11 +214,17 @@
   </div>
 
   <header>
-    <p class="intro reveal">we built the least motivational quit vaping app ever made.</p>
-    <div class="head-cta reveal">
-      <span class="launch">launching 1 august.</span>
-      <a class="join-link" href="#join">get on the list <span class="arr" aria-hidden="true">↓</span></a>
+    <div class="head-text">
+      <p class="intro reveal">the least motivational quit vaping app ever made.</p>
+      <div class="head-cta reveal">
+        <span class="launch">launching 1 august.</span>
+        <a class="join-link" href="#join">get on the list <span class="arr" aria-hidden="true">↓</span></a>
+      </div>
     </div>
+    <figure class="head-meme reveal">
+      <img src="assets/fruit-cloud.png" width="600" height="640"
+           alt="oil painting of a stern 18th-century gentleman inspecting a rainbow vape — captioned: sir, that is a battery for a fruit cloud. and you are a grown man." loading="lazy">
+    </figure>
   </header>
 
   <hr>
@@ -357,26 +364,6 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-    // typewriter for the definition — dry, terminal-style
-    const def = document.getElementById('def');
-    const full = def.getAttribute('data-text');
-    def.textContent = '';
-    const caret = document.createElement('span');
-    caret.className = 'caret';
-    caret.textContent = '_';
-    def.appendChild(caret);
-    let i = 0;
-    function type() {
-      if (i < full.length) {
-        caret.insertAdjacentText('beforebegin', full.charAt(i));
-        i++;
-        setTimeout(type, 18 + (full.charAt(i - 1) === ' ' ? 10 : 0));
-      } else {
-        setTimeout(() => caret.remove(), 1400);
-      }
-    }
-    setTimeout(type, 350);
 
     // parallax + scroll progress (rAF-throttled)
     const parallax = [...document.querySelectorAll('[data-parallax]')];
