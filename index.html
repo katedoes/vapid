@@ -103,7 +103,7 @@
 
   /* ── VERDICT — the one inverted block ── */
   .verdict{ background:var(--bone); color:var(--ink); padding:44px 26px; margin:8px 0; }
-  .verdict .big{ font-size:clamp(21px,5.5vw,30px); line-height:1.26; font-weight:700; margin-bottom:18px; max-width:26ch; }
+  .verdict .big{ font-size:clamp(17px,4.4vw,23px); line-height:1.32; font-weight:700; margin-bottom:18px; max-width:30ch; }
   .verdict .big em{ font-style:normal; background:var(--lime); padding:0 4px; }
   .verdict .beats{ font-size:clamp(17px,4.4vw,22px); color:#5C5645; display:flex; gap:.5ch; flex-wrap:wrap; }
   .verdict .beats span{ font-weight:700; }
@@ -114,8 +114,8 @@
   /* ── SIGNUP — lime panel: the loudest surface on the page ── */
   .cta{ padding:52px 0; }
   .cta-panel{ background:var(--lime); color:var(--ink); padding:40px 26px; border-top:8px solid var(--ink); }
-  .cta-panel h2{ font-size:clamp(30px,8vw,46px); font-weight:700; margin-bottom:14px;
-                 letter-spacing:-.02em; line-height:1.1; }
+  .cta-panel h2{ font-size:clamp(23px,7vw,44px); font-weight:700; margin-bottom:14px;
+                 letter-spacing:-.02em; line-height:1.1; white-space:nowrap; }
   .cta-panel h2 em{ font-style:normal; background:var(--ink); color:var(--lime); padding:0 .12em; }
   .cta-panel .dim{ color:var(--ink); max-width:32ch; font-size:clamp(17px,4.6vw,20px);
                    line-height:1.5; }
@@ -138,14 +138,15 @@
          font-weight:700; display:none; max-width:520px; }
   .cta-panel .note.err{ border-color:#8F2C18; color:#8F2C18; }
   .cta-panel .socials{ margin-top:24px; font-size:15px; color:rgba(22,21,15,.72); line-height:1.55; max-width:44ch; }
+  .cta-panel .socials strong{ color:var(--ink); font-weight:700; }
   .cta-panel .socials a{ color:var(--ink); text-decoration:underline; text-underline-offset:3px; }
   .cta-panel .socials a:hover{ color:#000; }
 
   /* ── FOOTER ── */
   footer{ padding:48px 0 60px; }
-  .fine{ font-size:12px; color:#9E977F; line-height:1.75; max-width:56ch; }
-  .fine + .fine{ margin-top:14px; }
-  .fine a{ color:#9E977F; }
+  .fine{ font-size:15px; color:var(--bone); line-height:1.7; max-width:none; }
+  .fine + .fine{ margin-top:16px; }
+  .fine a{ color:var(--bone); text-decoration:underline; text-underline-offset:3px; }
 
   /* ── tablet ── */
   @media(min-width:640px){
@@ -184,14 +185,14 @@
 
     .verdict{ padding:64px 56px; display:grid; grid-template-columns:1fr auto;
               gap:56px; align-items:center; }
-    .verdict .big{ font-size:clamp(28px,3vw,38px); }
+    .verdict .big{ font-size:clamp(21px,2.2vw,28px); }
     .verdict-meme{ margin:0; }
     .verdict-meme img{ width:300px; max-width:300px; }
 
     .cta{ padding:72px 0; }
     .cta-panel{ display:grid; grid-template-columns:1fr 1fr; gap:60px;
                 padding:60px 56px; align-items:center; }
-    .cta-panel h2{ font-size:clamp(36px,3.8vw,54px); }
+    .cta-panel h2{ font-size:clamp(30px,3vw,38px); }
     .cta-panel .dim{ max-width:30ch; margin-bottom:0; }
 
   }
@@ -231,8 +232,8 @@
       </div>
     </div>
     <figure class="head-meme reveal">
-      <img src="assets/battery-dead.png" width="600" height="600"
-           alt="five-panel stick-figure comic — 'sorry, can't come out.' / 'battery's dead.' / 'your phone?' / 'no.' — last panel points at a vape charging in a wall socket." loading="lazy">
+      <img src="assets/fruit-cloud.png" width="600" height="640"
+           alt="oil painting of a stern 18th-century gentleman inspecting a rainbow vape — captioned: sir, that is a battery for a fruit cloud. and you are a grown man.">
     </figure>
   </header>
 
@@ -265,8 +266,8 @@
       </p>
     </div>
     <figure class="verdict-meme">
-      <img src="assets/fruit-cloud.png" width="600" height="640" loading="lazy"
-           alt="oil painting of a stern 18th-century gentleman inspecting a rainbow vape — captioned: sir, that is a battery for a fruit cloud. and you are a grown man.">
+      <img src="assets/battery-dead.png" width="600" height="600" loading="lazy"
+           alt="five-panel stick-figure comic — 'sorry, can't come out.' / 'battery's dead.' / 'your phone?' / 'no.' — last panel points at a vape charging in a wall socket.">
     </figure>
   </div>
 
@@ -286,7 +287,7 @@
           </div>
         </form>
         <div class="note" id="note" role="status"></div>
-        <p class="socials reveal">don't read emails? understandable. we don't really want to write them anyway. here's <a href="https://tiktok.com/@vapidfiles">tiktok</a> and <a href="https://instagram.com/vapidfiles">instagram</a>.</p>
+        <p class="socials reveal">don't read emails? <strong>understandable.</strong><br>we don't really want to write them anyway. here's <a href="https://tiktok.com/@vapidfiles">tiktok</a> and <a href="https://instagram.com/vapidfiles">instagram</a>.</p>
       </div>
     </div>
   </section>
