@@ -99,30 +99,12 @@
   .verdict .beats{ font-size:clamp(17px,4.4vw,22px); color:#5C5645; display:flex; gap:.5ch; flex-wrap:wrap; }
   .verdict .beats span{ font-weight:700; }
 
-  /* ── PANTONE SPLIT ── */
-  .split{ display:flex; flex-direction:column; gap:30px; padding:56px 0; align-items:center; }
-  .chip{
-    background:#FFFFFF; width:168px; flex:0 0 auto;
-    box-shadow:0 14px 34px rgba(0,0,0,.4);
-    transform:rotate(-2.5deg); will-change:transform;
-  }
-  .chip .fill{ height:168px; background:#4A412A; }
-  .chip .meta{ padding:11px 11px 15px; text-align:left; }
-  .chip .meta .p{ font-family:Helvetica,Arial,sans-serif; font-weight:700;
-    font-size:9px; color:#000; text-transform:uppercase; }
-  .chip .meta .c{ font-family:Helvetica,Arial,sans-serif; font-weight:700;
-    font-size:15px; color:#000; margin-top:2px; text-transform:uppercase; }
-  .chip .meta .u{ font-family:Helvetica,Arial,sans-serif;
-    font-size:7px; color:#8A8A8A; margin-top:5px; text-transform:uppercase; letter-spacing:.06em; }
-  .split .copy{ flex:1; }
-  .split .copy .eyebrow{ font-size:11px; letter-spacing:.2em; color:var(--soft); margin-bottom:12px; }
-  .split .copy p{ max-width:36ch; }
-
   /* ── SIGNUP — bone panel, echoes the inverted blocks above ── */
   .cta{ padding:52px 0; }
-  .cta-panel{ background:var(--bone); color:var(--ink); padding:40px 26px; }
+  .cta-panel{ background:var(--bone); color:var(--ink); padding:40px 26px; border-top:7px solid var(--lime); }
   .cta-panel h2{ font-size:clamp(30px,8vw,46px); font-weight:700; margin-bottom:14px;
                  letter-spacing:-.02em; line-height:.98; }
+  .cta-panel h2 em{ font-style:normal; background:var(--lime); padding:0 .1em; }
   .cta-panel .dim{ color:#5C5645; max-width:34ch; }
   .cta-panel form{ margin-top:26px; max-width:520px; }
   .field{ display:flex; flex-direction:column; gap:10px; }
@@ -130,13 +112,13 @@
          background:transparent; color:var(--ink);
          border:2px solid rgba(22,21,15,.35); border-radius:0; outline:none;
          transition:border-color .15s ease; }
-  .cta-panel input:focus{ border-color:var(--ink); }
+  .cta-panel input:focus{ border-color:var(--lime); }
   .cta-panel input::placeholder{ color:#8A836E; }
   .cta-panel button{ padding:16px 30px; font:inherit; font-weight:700; font-size:14px;
-          letter-spacing:.12em; background:var(--ink); color:var(--bone);
+          letter-spacing:.12em; background:var(--lime); color:var(--ink);
           border:0; cursor:pointer; text-transform:lowercase; white-space:nowrap;
           transition:background .15s ease, color .15s ease; }
-  .cta-panel button:hover{ background:var(--lime); color:var(--ink); }
+  .cta-panel button:hover{ background:var(--ink); color:var(--bone); }
   .cta-panel button:disabled{ opacity:.5; cursor:default; }
   .cta-panel .note{ margin-top:22px; padding:16px; border:2px solid var(--ink); color:var(--ink);
          font-weight:700; display:none; max-width:520px; }
@@ -155,7 +137,6 @@
   @media(min-width:640px){
     .field{ flex-direction:row; }
     input{ flex:1; }
-    .split{ flex-direction:row; gap:44px; align-items:center; }
     .verdict{ padding:52px 44px; }
   }
 
@@ -185,7 +166,6 @@
     .manifesto{ padding:64px 0; }
     .manifesto p{ max-width:56ch; }
 
-    .split{ padding:72px 0; gap:64px; }
     .verdict{ padding:64px 56px; }
     .verdict .big{ font-size:clamp(28px,3vw,38px); }
 
@@ -256,29 +236,12 @@
     </p>
   </div>
 
-  <div class="split">
-    <div class="chip reveal" data-parallax="-0.04" data-rot="-2.5deg" aria-hidden="true">
-      <div class="fill"></div>
-      <div class="meta">
-        <div class="p">Pantone®</div>
-        <div class="c">448 C</div>
-        <div class="u">Opaque Couché</div>
-      </div>
-    </div>
-    <div class="copy" data-stagger>
-      <div class="eyebrow reveal">fun fact</div>
-      <p class="reveal">our brand colour is pantone 448c.</p>
-      <p class="dim reveal">a government paid scientists to find the ugliest colour on earth, so it could be printed on cigarette packets.</p>
-      <p class="dim reveal">they did a good job.</p>
-    </div>
-  </div>
-
   <hr>
 
   <section class="cta" id="join">
     <div class="cta-panel" data-stagger>
       <div class="cta-head">
-        <h2 class="reveal">get on the list.</h2>
+        <h2 class="reveal">get on the <em>list</em>.</h2>
         <p class="dim reveal">we'll email you when it exists. then we'll leave you alone, which is more than the vape industry has ever done.</p>
       </div>
       <div class="cta-body">
@@ -298,6 +261,7 @@
 
   <footer>
     <p class="fine">not medical advice. obviously. see a doctor if you need one. our speciality is cringe memes.</p>
+    <p class="fine">our brand colour is pantone 448c. a government paid scientists to find the ugliest colour on earth, so it could be printed on cigarette packets. they did a good job.</p>
     <p class="fine">pantone® is a trademark of pantone llc. we are not affiliated with them, or with any vape manufacturer.</p>
     <p class="fine">© 2026 · <a href="/privacy.html">privacy</a> · <a href="/terms.html">terms</a> · <a href="mailto:hello@vapid.app">contact</a></p>
   </footer>
