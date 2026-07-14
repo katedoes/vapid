@@ -118,27 +118,32 @@
   .split .copy .eyebrow{ font-size:11px; letter-spacing:.2em; color:var(--soft); margin-bottom:12px; }
   .split .copy p{ max-width:36ch; }
 
-  /* ── FORM ── */
-  .cta h2{ font-size:clamp(26px,6.5vw,38px); font-weight:700; margin-bottom:14px; letter-spacing:-.01em; }
-  .cta > p{ max-width:44ch; }
-  form{ margin-top:24px; max-width:520px; }
-  .field{ display:flex; flex-direction:column; gap:8px; }
-  input{ width:100%; padding:16px; font:inherit; font-size:16px; text-transform:lowercase;
-         background:transparent; color:var(--bone);
-         border:2px solid rgba(242,239,228,.45); border-radius:0; outline:none; }
-  input:focus{ border-color:var(--lime); }
-  input::placeholder{ color:#9C957F; }
-  button{ padding:16px 30px; font:inherit; font-weight:700; font-size:14px;
-          letter-spacing:.12em; background:var(--lime); color:var(--ink);
-          border:0; cursor:pointer; text-transform:lowercase; white-space:nowrap; }
-  button:hover{ background:var(--bone); }
-  button:disabled{ opacity:.55; cursor:default; }
-  .note{ margin-top:22px; padding:16px; border:2px solid var(--lime); color:var(--lime);
+  /* ── SIGNUP — bone panel, echoes the inverted blocks above ── */
+  .cta{ padding:52px 0; }
+  .cta-panel{ background:var(--bone); color:var(--ink); padding:40px 26px; }
+  .cta-panel h2{ font-size:clamp(30px,8vw,46px); font-weight:700; margin-bottom:14px;
+                 letter-spacing:-.02em; line-height:.98; }
+  .cta-panel .dim{ color:#5C5645; max-width:34ch; }
+  .cta-panel form{ margin-top:26px; max-width:520px; }
+  .field{ display:flex; flex-direction:column; gap:10px; }
+  .cta-panel input{ width:100%; padding:16px; font:inherit; font-size:16px; text-transform:lowercase;
+         background:transparent; color:var(--ink);
+         border:2px solid rgba(22,21,15,.35); border-radius:0; outline:none;
+         transition:border-color .15s ease; }
+  .cta-panel input:focus{ border-color:var(--ink); }
+  .cta-panel input::placeholder{ color:#8A836E; }
+  .cta-panel button{ padding:16px 30px; font:inherit; font-weight:700; font-size:14px;
+          letter-spacing:.12em; background:var(--ink); color:var(--bone);
+          border:0; cursor:pointer; text-transform:lowercase; white-space:nowrap;
+          transition:background .15s ease, color .15s ease; }
+  .cta-panel button:hover{ background:var(--lime); color:var(--ink); }
+  .cta-panel button:disabled{ opacity:.5; cursor:default; }
+  .cta-panel .note{ margin-top:22px; padding:16px; border:2px solid var(--ink); color:var(--ink);
          font-weight:700; display:none; max-width:520px; }
-  .note.err{ border-color:#E8735A; color:#E8735A; }
-  .socials{ margin-top:24px; font-size:15px; color:var(--soft); line-height:1.55; max-width:44ch; }
-  .socials a{ color:var(--bone); text-decoration:underline; text-underline-offset:3px; }
-  .socials a:hover{ color:var(--lime); }
+  .cta-panel .note.err{ border-color:#C0472F; color:#C0472F; }
+  .cta-panel .socials{ margin-top:24px; font-size:15px; color:#5C5645; line-height:1.55; max-width:44ch; }
+  .cta-panel .socials a{ color:var(--ink); text-decoration:underline; text-underline-offset:3px; }
+  .cta-panel .socials a:hover{ color:#000; }
 
   /* ── FOOTER ── */
   footer{ padding:48px 0 60px; }
@@ -185,6 +190,10 @@
     .verdict .big{ font-size:clamp(28px,3vw,38px); }
 
     .cta{ padding:72px 0; }
+    .cta-panel{ display:grid; grid-template-columns:1fr 1fr; gap:60px;
+                padding:60px 56px; align-items:center; }
+    .cta-panel h2{ font-size:clamp(36px,3.8vw,54px); }
+    .cta-panel .dim{ max-width:30ch; margin-bottom:0; }
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -234,7 +243,7 @@
       <p class="reveal">we make it cringe. relentlessly, specifically, until the thing in your hand looks as stupid as it is and you can't unsee it.</p>
       <p class="reveal">we do it in memes, because you have the attention span of a disposable vape.</p>
       <p class="reveal">no breathing exercises. no affirmations. <strong>nobody here is proud of you.</strong></p>
-      <p class="reveal">what we offer instead is the slow, permanent realisation that you are a grown adult sucking a flavoured usb stick, which you charge, at night, next to your bed.</p>
+      <p class="reveal">what we offer instead is the slow, permanent realisation that you are a grown adult sucking a flavoured usb stick.</p>
     </div>
   </section>
 
@@ -266,26 +275,30 @@
 
   <hr>
 
-  <section class="cta" id="join" data-stagger>
-    <h2 class="reveal">get on the list.</h2>
-    <p class="dim reveal">we'll email you when it exists. then we'll leave you alone, which is more than the vape industry has ever done.</p>
-
-    <form id="wl" class="reveal" novalidate>
-      <div class="field">
-        <input type="email" id="email" placeholder="email" required autocomplete="email" aria-label="email">
-        <button type="submit" id="submit">fine</button>
+  <section class="cta" id="join">
+    <div class="cta-panel" data-stagger>
+      <div class="cta-head">
+        <h2 class="reveal">get on the list.</h2>
+        <p class="dim reveal">we'll email you when it exists. then we'll leave you alone, which is more than the vape industry has ever done.</p>
       </div>
-    </form>
-    <div class="note" id="note" role="status"></div>
-
-    <p class="socials reveal">don't read emails? understandable. we don't really want to write them anyway. here's <a href="https://tiktok.com/@vapidfiles">tiktok</a> and <a href="https://instagram.com/vapidfiles">instagram</a>.</p>
+      <div class="cta-body">
+        <form id="wl" class="reveal" novalidate>
+          <div class="field">
+            <input type="email" id="email" placeholder="email" required autocomplete="email" aria-label="email">
+            <button type="submit" id="submit">fine</button>
+          </div>
+        </form>
+        <div class="note" id="note" role="status"></div>
+        <p class="socials reveal">don't read emails? understandable. we don't really want to write them anyway. here's <a href="https://tiktok.com/@vapidfiles">tiktok</a> and <a href="https://instagram.com/vapidfiles">instagram</a>.</p>
+      </div>
+    </div>
   </section>
 
   <hr>
 
   <footer>
     <p class="fine">not medical advice. obviously. see a doctor if you need one. our speciality is cringe memes.</p>
-    <p class="fine">pantone® is a trademark of pantone llc. we are not affiliated with them, or with any vape manufacturer, several of whom would prefer we stopped.</p>
+    <p class="fine">pantone® is a trademark of pantone llc. we are not affiliated with them, or with any vape manufacturer.</p>
     <p class="fine">© 2026 · <a href="/privacy.html">privacy</a> · <a href="/terms.html">terms</a> · <a href="mailto:hello@vapid.app">contact</a></p>
   </footer>
 
