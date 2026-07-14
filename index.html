@@ -66,10 +66,10 @@
   header{ padding:48px 0 52px; display:flex; flex-direction:column; gap:34px; }
   .intro{ font-size:clamp(24px,6.2vw,34px); line-height:1.2; font-weight:700;
           letter-spacing:-.01em; max-width:20ch; }
-  .head-cta{ margin-top:24px; display:flex; flex-direction:column; gap:14px; align-items:flex-start; }
+  .head-cta{ margin-top:24px; display:flex; flex-direction:column; gap:14px; align-items:stretch; text-align:center; }
   .launch{ display:inline-block; background:var(--lime); color:var(--ink);
            font-weight:700; padding:10px 16px; font-size:clamp(15px,4vw,18px); }
-  .join-link{ display:inline-flex; align-items:center; gap:.5ch; text-decoration:none;
+  .join-link{ display:inline-flex; align-items:center; justify-content:center; gap:.5ch; text-decoration:none;
               border:2px solid var(--bone); color:var(--ink); background:var(--bone);
               font-weight:700; padding:10px 16px; font-size:clamp(15px,4vw,17px);
               transition:background .15s ease, color .15s ease, border-color .15s ease; }
@@ -99,9 +99,7 @@
   .edef{ font-size:clamp(16px,4.4vw,19px); line-height:1.5; max-width:52ch; }
   .struck{ color:var(--soft); text-decoration:line-through; text-decoration-color:var(--lime); }
   .hl{ color:var(--lime); }
-  .mmeme{ margin:36px 0 0; }
-  .mmeme img{ display:block; width:100%; max-width:420px; height:auto;
-              border:1px solid var(--line); box-shadow:0 14px 34px rgba(0,0,0,.35); }
+  .pop{ font-weight:700; font-style:italic; color:var(--lime); }
 
   /* ── VERDICT — the one inverted block ── */
   .verdict{ background:var(--bone); color:var(--ink); padding:44px 26px; margin:8px 0; }
@@ -109,12 +107,15 @@
   .verdict .big em{ font-style:normal; background:var(--lime); padding:0 4px; }
   .verdict .beats{ font-size:clamp(17px,4.4vw,22px); color:#5C5645; display:flex; gap:.5ch; flex-wrap:wrap; }
   .verdict .beats span{ font-weight:700; }
+  .verdict-meme{ margin:28px 0 0; }
+  .verdict-meme img{ display:block; width:100%; max-width:300px; height:auto;
+                     box-shadow:0 12px 30px rgba(0,0,0,.28); }
 
   /* ── SIGNUP — lime panel: the loudest surface on the page ── */
   .cta{ padding:52px 0; }
   .cta-panel{ background:var(--lime); color:var(--ink); padding:40px 26px; border-top:8px solid var(--ink); }
   .cta-panel h2{ font-size:clamp(30px,8vw,46px); font-weight:700; margin-bottom:14px;
-                 letter-spacing:-.02em; line-height:.98; }
+                 letter-spacing:-.02em; line-height:1.1; }
   .cta-panel h2 em{ font-style:normal; background:var(--ink); color:var(--lime); padding:0 .12em; }
   .cta-panel .dim{ color:var(--ink); max-width:32ch; font-size:clamp(17px,4.6vw,20px);
                    line-height:1.5; }
@@ -176,16 +177,16 @@
     .head-cta{ margin-top:28px; flex-direction:row; align-items:center; flex-wrap:wrap; gap:16px; }
     .head-meme img{ width:340px; max-width:340px; }
 
-    .manifesto{ padding:80px 0; display:grid; grid-template-columns:1fr auto;
-                gap:64px; align-items:center; }
+    .manifesto{ padding:80px 0; }
     .eword{ font-size:clamp(38px,4vw,52px); }
-    .edef{ max-width:44ch; }
+    .edef{ max-width:56ch; }
     .entry{ margin-bottom:44px; }
-    .mmeme{ margin:0; }
-    .mmeme img{ width:400px; max-width:400px; }
 
-    .verdict{ padding:64px 56px; }
+    .verdict{ padding:64px 56px; display:grid; grid-template-columns:1fr auto;
+              gap:56px; align-items:center; }
     .verdict .big{ font-size:clamp(28px,3vw,38px); }
+    .verdict-meme{ margin:0; }
+    .verdict-meme img{ width:300px; max-width:300px; }
 
     .cta{ padding:72px 0; }
     .cta-panel{ display:grid; grid-template-columns:1fr 1fr; gap:60px;
@@ -230,8 +231,8 @@
       </div>
     </div>
     <figure class="head-meme reveal">
-      <img src="assets/fruit-cloud.png" width="600" height="640"
-           alt="oil painting of a stern 18th-century gentleman inspecting a rainbow vape — captioned: sir, that is a battery for a fruit cloud. and you are a grown man." loading="lazy">
+      <img src="assets/battery-dead.png" width="600" height="600"
+           alt="five-panel stick-figure comic — 'sorry, can't come out.' / 'battery's dead.' / 'your phone?' / 'no.' — last panel points at a vape charging in a wall socket." loading="lazy">
     </figure>
   </header>
 
@@ -241,7 +242,7 @@
     <div class="entries">
       <div class="entry reveal">
         <div class="ehead"><span class="eword">cringe</span> <span class="ipa">/krɪndʒ/</span> <span class="pos">verb</span></div>
-        <p class="edef">relentlessly, specifically, until the thing in your hand looks as stupid as it is and you can't unsee it.</p>
+        <p class="edef">relentlessly, specifically, until the thing in your hand looks as <span class="pop">stupid</span> as it is and you can't unsee it.</p>
       </div>
       <div class="entry reveal">
         <div class="ehead"><span class="eword">memes</span> <span class="ipa">/miːmz/</span> <span class="pos">noun</span></div>
@@ -252,19 +253,21 @@
         <p class="edef">that you are a grown adult sucking a <span class="hl">flavoured usb stick</span>.</p>
       </div>
     </div>
-    <figure class="mmeme reveal">
-      <img src="assets/battery-dead.png" width="600" height="600" loading="lazy"
-           alt="five-panel stick-figure comic — 'sorry, can't come out.' / 'battery's dead.' / 'your phone?' / 'no.' — last panel points at a vape charging in a wall socket.">
-    </figure>
   </section>
 
   <div class="verdict reveal">
-    <p class="big">in the entire history of the world, nobody has ever watched someone vape and thought: <em>that person is cool.</em></p>
-    <p class="beats" data-stagger>
-      <span class="reveal">not once.</span>
-      <span class="reveal">not you.</span>
-      <span class="reveal">not ever.</span>
-    </p>
+    <div class="verdict-text">
+      <p class="big">in the entire history of the world, nobody has ever watched someone vape and thought: <em>that person is cool.</em></p>
+      <p class="beats" data-stagger>
+        <span class="reveal">not once.</span>
+        <span class="reveal">not you.</span>
+        <span class="reveal">not ever.</span>
+      </p>
+    </div>
+    <figure class="verdict-meme">
+      <img src="assets/fruit-cloud.png" width="600" height="640" loading="lazy"
+           alt="oil painting of a stern 18th-century gentleman inspecting a rainbow vape — captioned: sir, that is a battery for a fruit cloud. and you are a grown man.">
+    </figure>
   </div>
 
   <hr>
@@ -273,7 +276,7 @@
     <div class="cta-panel" data-stagger>
       <div class="cta-head">
         <h2 class="reveal">get on the <em>list</em>.</h2>
-        <p class="dim reveal">we'll email you when it exists. <strong>then we'll leave you alone</strong> — which is more than the vape industry has ever done.</p>
+        <p class="dim reveal">we'll email you when it's launched. <strong>then we'll leave you alone</strong> — which is more than the vape industry has ever done.</p>
       </div>
       <div class="cta-body">
         <form id="wl" class="reveal" novalidate>
