@@ -64,8 +64,8 @@
 
   /* ── STATEMENT (tagline + launch) ── */
   header{ padding:48px 0 52px; display:flex; flex-direction:column; gap:34px; }
-  .intro{ font-size:clamp(24px,6.2vw,34px); line-height:1.2; font-weight:700;
-          letter-spacing:-.01em; max-width:20ch; }
+  .intro{ font-size:clamp(20px,5.5vw,32px); line-height:1.25; font-weight:700;
+          letter-spacing:-.01em; max-width:none; text-wrap:balance; }
   .head-cta{ margin-top:24px; display:flex; flex-direction:column; gap:14px; align-items:stretch; text-align:center; }
   .launch{ display:inline-block; background:var(--lime); color:var(--ink);
            font-weight:700; padding:10px 16px; font-size:clamp(15px,4vw,18px); }
@@ -197,6 +197,10 @@
 
   }
 
+  @media(max-width:639px){
+    .etym{ display:none; }
+  }
+
   @media (prefers-reduced-motion: reduce){
     html{ scroll-behavior:auto; }
     .reveal{ opacity:1; transform:none; transition:none; }
@@ -243,11 +247,11 @@
     <div class="entries">
       <div class="entry reveal">
         <div class="ehead"><span class="eword">cringe</span> <span class="ipa">/krɪndʒ/</span> <span class="pos">verb</span></div>
-        <p class="edef">relentlessly, specifically, until the thing in your hand looks as <span class="pop">stupid</span> as it is and you can't unsee it.</p>
+        <p class="edef">until the thing in your hand looks as <span class="pop">stupid</span> as it is and you can't unsee it.</p>
       </div>
       <div class="entry reveal">
         <div class="ehead"><span class="eword">memes</span> <span class="ipa">/miːmz/</span> <span class="pos">noun</span></div>
-        <p class="edef">you have the attention span of a disposable vape. <s class="struck">no breathing exercises. no affirmations.</s> nobody here is proud of you.</p>
+        <p class="edef">because you have the attention span of a disposable vape. <s class="struck">no breathing exercises. no affirmations.</s> nobody here is proud of you.</p>
       </div>
       <div class="entry reveal">
         <div class="ehead"><span class="eword">realisation</span> <span class="ipa">/rɪəlʌɪˈzeɪʃn/</span> <span class="pos">noun</span></div>
@@ -287,7 +291,7 @@
           </div>
         </form>
         <div class="note" id="note" role="status"></div>
-        <p class="socials reveal">don't read emails? <strong>understandable.</strong><br>we don't really want to write them anyway. here's <a href="https://tiktok.com/@vapidfiles">tiktok</a> and <a href="https://instagram.com/vapidfiles">instagram</a>.</p>
+        <p class="socials reveal"><em>don't read emails?</em> <strong>understandable.</strong><br>we don't really want to write them anyway. here's <a href="https://tiktok.com/@vapidfiles">tiktok</a> and <a href="https://instagram.com/vapidfiles">instagram</a>.</p>
       </div>
     </div>
   </section>
